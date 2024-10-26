@@ -1,11 +1,19 @@
 import discord
 import asyncio
+import os
+
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 from discord import Member
-from config import *
+from dotenv import load_dotenv
 
+#All necessary API Key, Token
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+GEN_TXT_CHANNEL = os.getenv("GENERAL_TXT_CHANNEL")
+DEV_TEXT_CHANNEL = os.getenv("DEV_TEXT_CHANNEL")
 
+wake_word = "gizmo"
 intent = discord.Intents.default()
 intent.message_content = True
 intent.members = True
@@ -20,7 +28,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member: discord.Member):
-    channel = bot.get_channel(general_txt_channel)
+    channel = bot.get_channel(GEN_TXT_CHANNEL)
     await channel.send(f"Welcome **{member.display_name}** :wave:, I hope you enjoy your stay! :blush:")
 
 @bot.event
@@ -69,5 +77,4 @@ async def kick_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You don't have permission to kick people!")
 
-
-bot.run(bot_token)
+bot.run(BOT_TOKEN)

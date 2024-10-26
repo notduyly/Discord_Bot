@@ -9,7 +9,7 @@ The main goal of this project is to:
 - Utilized Git and GitHub to learn and get familiarized with version control.
 
 Future Goal:
-- Implement ML
+- Implement AI
 - Voice Recognition (Not sure if this is possible)
 
 
