@@ -1,4 +1,4 @@
-# discord_bot
+# Discord_Bot
 
 This project is for learning purposes. As Discord is usually open on my computer, this Discord
 Bot can serve as a personal assistant. 
